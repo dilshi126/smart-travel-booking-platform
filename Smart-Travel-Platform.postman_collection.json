@@ -1,0 +1,240 @@
+{
+  "info": {
+    "name": "Smart Travel Platform",
+    "description": "Postman collection for Smart Travel Booking Platform microservices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Service",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8081/api/users"
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8081/api/users/1"
+          }
+        },
+        {
+          "name": "Validate User",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8081/api/users/1/validate"
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8081/api/users",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"1234567890\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Flight Service",
+      "item": [
+        {
+          "name": "Get All Flights",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8082/api/flights"
+          }
+        },
+        {
+          "name": "Get Flight by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8082/api/flights/1"
+          }
+        },
+        {
+          "name": "Check Flight Availability",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8082/api/flights/1/availability"
+          }
+        },
+        {
+          "name": "Book Flight",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8082/api/flights/1/book"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hotel Service",
+      "item": [
+        {
+          "name": "Get All Hotels",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8083/api/hotels"
+          }
+        },
+        {
+          "name": "Get Hotel by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8083/api/hotels/1"
+          }
+        },
+        {
+          "name": "Check Hotel Availability",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8083/api/hotels/1/availability"
+          }
+        },
+        {
+          "name": "Book Hotel",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8083/api/hotels/1/book"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payment Service",
+      "item": [
+        {
+          "name": "Get All Payments",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8084/api/payments"
+          }
+        },
+        {
+          "name": "Get Payment by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8084/api/payments/1"
+          }
+        },
+        {
+          "name": "Process Payment",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8084/api/payments/process",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookingId\": 1,\n  \"amount\": 500.00,\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notification Service",
+      "item": [
+        {
+          "name": "Get All Notifications",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8085/api/notifications"
+          }
+        },
+        {
+          "name": "Get Notifications by User",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8085/api/notifications/user/1"
+          }
+        },
+        {
+          "name": "Send Notification",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8085/api/notifications/send",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"bookingId\": 1,\n  \"type\": \"EMAIL\",\n  \"recipient\": \"user@example.com\",\n  \"subject\": \"Test Notification\",\n  \"message\": \"This is a test notification\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Booking Service",
+      "item": [
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8086/api/bookings"
+          }
+        },
+        {
+          "name": "Get Booking by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8086/api/bookings/1"
+          }
+        },
+        {
+          "name": "Create Booking (Full Flow)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8086/api/bookings",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"flightId\": 1,\n  \"hotelId\": 1,\n  \"travelDate\": \"2025-01-10\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Confirm Booking",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8086/api/bookings/1/confirm"
+          }
+        },
+        {
+          "name": "Cancel Booking",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8086/api/bookings/1/cancel"
+          }
+        }
+      ]
+    }
+  ]
+}
