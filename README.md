@@ -6,7 +6,7 @@ A distributed travel booking backend platform built with Spring Boot 3+ and Java
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
-│                           SMART TRAVEL PLATFORM                                  │
+│                           SMART TRAVEL BOOKING PLATFORM                                  │
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                  │
 │    ┌──────────────┐                                                             │
